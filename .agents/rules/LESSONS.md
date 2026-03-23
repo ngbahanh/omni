@@ -154,3 +154,16 @@
 **Problem:** chalk uses method chaining (`chalk.bold.blueBright()`), but theme config stores color names as strings (e.g., `"blueBright"`).
 **Solution:** Created an `applyColor(colorName, text)` helper that splits the color string on `.` and chains chalk methods dynamically. Themes are plain objects mapping semantic roles (primary, success, error, etc.) to chalk color names.
 **Rule going forward:** All `ui.*` functions use `applyColor(activeTheme.role, text)`. Never hardcode chalk colors in tools — the theme handles it.
+
+---
+
+## [2026-03-24] — Project-wide error display pattern
+
+**Context:** Improving CLI error messages to be user-friendly.
+**Problem:** Raw yt-dlp errors are long, technical, and in English — useless for end users.
+**Solution:** Established a three-layer error pattern:
+1. **Classify**: Map raw errors to categories (`auth`, `ratelimit`, `geo`, `network`, etc.) via regex patterns in `downloader.js`.
+2. **Display**: Use `ui.errorBox(icon, friendlyMsg)` + `ui.errorDetail(filename)` for structured error output.
+3. **i18n**: All error messages go through `t('errors.*')` keys, tips through `t('errors.tip_*')`. Defined in `src/i18n/locales/{en,vi}.js`.
+4. **Tips**: After errors, show actionable hints via `ui.tip()` based on error categories.
+**Rule going forward:** Never show raw tool errors to users. Always classify → translate → display with tips.

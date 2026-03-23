@@ -3,3 +3,5 @@ node_modules/
 *.log
 .agents/config/
 .agents/logs/
+**/*_cookies.txt
+downloads/*

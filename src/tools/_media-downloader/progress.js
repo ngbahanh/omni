@@ -1,7 +1,7 @@
 // src/tools/_media-downloader/progress.js
 // ANSI-based in-place progress display for downloads
 
-import { t } from '../../i18n/index.js';
+import { t } from "../../i18n/index.js";
 
 /**
  * Create a progress renderer that updates a single line in-place.
@@ -38,9 +38,14 @@ export function createProgressRenderer() {
      */
     parseVideoCounter(line) {
       // Pattern: [download] Downloading video X of Y
-      const match = line.match(/\[download\]\s+Downloading\s+video\s+(\d+)\s+of\s+(\d+)/);
+      const match = line.match(
+        /\[download\]\s+Downloading\s+video\s+(\d+)\s+of\s+(\d+)/,
+      );
       if (match) {
-        return { current: parseInt(match[1], 10), total: parseInt(match[2], 10) };
+        return {
+          current: parseInt(match[1], 10),
+          total: parseInt(match[2], 10),
+        };
       }
       return null;
     },
@@ -63,7 +68,10 @@ export function createProgressRenderer() {
      * @returns {boolean}
      */
     isAlreadyDownloaded(line) {
-      return line.includes('has already been downloaded') || line.includes('has already been recorded');
+      return (
+        line.includes("has already been downloaded") ||
+        line.includes("has already been recorded")
+      );
     },
 
     /**
@@ -79,11 +87,21 @@ export function createProgressRenderer() {
      * @param {number} opts.completed - completed count
      * @param {number} opts.errors - error count
      */
-    render({ percent = 0, size = '', speed = '', eta = '', filename = '', current = 0, total = 0, completed = 0, errors = 0 }) {
+    render({
+      percent = 0,
+      size = "",
+      speed = "",
+      eta = "",
+      filename = "",
+      current = 0,
+      total = 0,
+      completed = 0,
+      errors = 0,
+    }) {
       const barWidth = 30;
       const filled = Math.round((percent / 100) * barWidth);
       const empty = barWidth - filled;
-      const bar = '█'.repeat(filled) + '░'.repeat(empty);
+      const bar = "█".repeat(filled) + "░".repeat(empty);
 
       const lines = [];
 
@@ -93,10 +111,14 @@ export function createProgressRenderer() {
         lines.push(`  ${truncate(filename, 55)}`);
       }
 
-      lines.push(`  [${bar}] ${percent.toFixed(1)}% — ${size} — ${speed} — ETA ${eta}`);
+      lines.push(
+        `  [${bar}] ${percent.toFixed(1)}% — ${size} — ${speed} — ETA ${eta}`,
+      );
 
       if (completed > 0 || errors > 0) {
-        lines.push(`  ✔ ${t('downloader.progress_completed', { n: completed })}  ✖ ${t('downloader.progress_errors_count', { n: errors })}`);
+        lines.push(
+          `  ✔ ${t("downloader.progress_completed", { n: completed })}  ✖ ${t("downloader.progress_errors_count", { n: errors })}`,
+        );
       }
 
       // Move cursor up to overwrite previous lines
@@ -124,7 +146,7 @@ export function createProgressRenderer() {
     clear() {
       if (lastLineCount > 0) {
         for (let i = 0; i < lastLineCount; i++) {
-          process.stdout.write('\x1b[1A\x1b[2K');
+          process.stdout.write("\x1b[1A\x1b[2K");
         }
         lastLineCount = 0;
       }
@@ -133,7 +155,7 @@ export function createProgressRenderer() {
 }
 
 function truncate(str, maxLen) {
-  if (!str) return '';
+  if (!str) return "";
   if (str.length <= maxLen) return str;
-  return str.slice(0, maxLen - 3) + '...';
+  return str.slice(0, maxLen - 3) + "...";
 }

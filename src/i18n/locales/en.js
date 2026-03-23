@@ -170,7 +170,8 @@ export default {
     input_history: "View recent download history",
     enter_url: "Enter URL:",
     enter_url_required: "Please enter a URL",
-    batch_instructions: "Enter multiple URLs, one per line. Empty line or DONE to finish:",
+    batch_instructions:
+      "Enter multiple URLs, one per line. Empty line or DONE to finish:",
     download_video: "Download video",
     download_audio: "Download audio only (MP3)",
     download_video_subs: "Download video + subtitles",
@@ -206,14 +207,16 @@ export default {
     ig_needs_gallery_dl: "requires gallery-dl",
     fb_download: "Download Facebook video:",
     fb_limit_warning: "Facebook limits content for unauthenticated accounts.",
-    fb_login_hint: "To download fully, configure Facebook cookies in Manage Login Sessions.",
+    fb_login_hint:
+      "To download fully, configure Facebook cookies in Manage Login Sessions.",
     fb_login_note: " (may require login)",
     fb_videos: "Videos (posted on Page)",
     fb_reels: "Reels",
     fb_photos: "Photos (Albums)",
     x_download: "Download media from tweet:",
     x_download_photo: "Download photos",
-    x_limit_warning: "X (Twitter) heavily restricts since 2023. Cookies are nearly mandatory.",
+    x_limit_warning:
+      "X (Twitter) heavily restricts since 2023. Cookies are nearly mandatory.",
     x_no_cookies: "Without cookies → only recent tweets can be downloaded.",
     x_all_media: "Download all media (photos + videos)",
     x_photos_only: "Photos only (Photos tab)",
@@ -290,6 +293,23 @@ export default {
     post_back: "Back to main menu",
     post_next: "What next?",
     open_folder_error: "Could not open folder: {{path}}",
+    fallback_gallery_dl: "yt-dlp failed — trying gallery-dl...",
+    probe_scanning: "Scanning content...",
+    probe_found: "Found: {{details}}",
+    probe_videos: "{{n}} videos",
+    probe_photos: "{{n}} photos",
+    probe_stories: "{{n}} stories",
+    probe_reels: "{{n}} reels",
+    probe_total: "{{n}} items total",
+    probe_failed: "Could not scan content (will download directly)",
+
+    // deps.js
+    deps_missing_title: "Missing dependencies",
+    deps_required_missing:
+      "Required dependencies missing: {{deps}}. Cannot continue.",
+    deps_gallery_dl_missing:
+      "gallery-dl not found. Instagram photos/stories and Facebook photos/albums will be unavailable.",
+    gallery_dl_connecting: "Fetching content via gallery-dl...",
 
     // history.js
     history_empty: "No download history yet.",
@@ -314,5 +334,37 @@ export default {
     md_quality_prompt: "Default quality:",
     md_quality_best: "Highest (best)",
     md_sub_langs_prompt: "Subtitle languages (comma separated):",
+  },
+
+  errors: {
+    // Error pattern friendly messages
+    auth_required: "Platform requires login (cookies)",
+    login_required: "Login required",
+    private_content: "Private content",
+    members_only: "Members-only / paid content",
+    age_restricted: "Age-restricted — login required",
+    geo_blocked: "Blocked in your region",
+    rate_limited: "Rate limited — wait and retry",
+    forbidden_403: "Access denied (403 Forbidden)",
+    not_found: "Content not found or deleted",
+    network_error: "Network connection error",
+    missing_ffmpeg: "ffmpeg missing — needed for video merging",
+    unsupported_url: "URL not supported",
+    broken_extractor:
+      "yt-dlp extractor for this site is broken — using gallery-dl instead",
+    unknown_error: "Unknown error",
+
+    // Tips
+    tip_auth:
+      'Configure cookies in "Manage Login Sessions" to access restricted content.',
+    tip_ratelimit:
+      "Wait a few minutes and try again. Increase sleep interval in Settings.",
+    tip_network: "Check your internet connection and try again.",
+    tip_ffmpeg: "Install ffmpeg: brew install ffmpeg",
+    tip_geo: "Try using a VPN to access geo-blocked content.",
+
+    // Summary
+    error_group_count: "{{friendly}} ({{count}} files)",
+    error_more: "... +{{n}} more",
   },
 };

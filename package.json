@@ -8,6 +8,10 @@
   "scripts": {
     "start": "node src/index.js",
     "dev": "nodemon src/index.js",
+    "format": "prettier --write \"src/**/*.js\" \"*.js\"",
+    "format:check": "prettier --check \"src/**/*.js\" \"*.js\"",
+    "lint": "eslint \"src/**/*.js\"",
+    "lint:fix": "eslint --fix \"src/**/*.js\"",
     "logs:clear": "node -e \"import('fs').then(fs=>{fs.writeFileSync('.agents/logs/omni.log','');fs.writeFileSync('.agents/logs/errors.log','');})\""
   },
   "dependencies": {
@@ -15,6 +19,10 @@
     "inquirer": "^13.3.2"
   },
   "devDependencies": {
-    "nodemon": "^3.1.14"
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.1.0",
+    "globals": "^17.4.0",
+    "nodemon": "^3.1.14",
+    "prettier": "^3.8.1"
   }
 }

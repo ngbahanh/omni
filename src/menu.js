@@ -59,5 +59,5 @@ export async function showMenu() {
 }
 
 function chalk_dim(str) {
-  return str ? `\x1b[2m${str}\x1b[0m` : "";
+  return str ? `${ui.dimText(str)}` : "";
 }

@@ -57,17 +57,34 @@ export const ui = {
   title: (msg) => console.log(chalk.bold(applyColor(activeTheme.primary, msg))),
   dim: (msg) => console.log(chalk.dim(msg)),
   dimText: (text) => chalk.dim(text), // returns string (does not print)
+  separator: (char = "─", len = 45) =>
+    console.log(chalk.dim("  " + char.repeat(len))),
+
+  // Enhanced error display — use for categorized/friendly errors
+  errorBox: (icon, message) => {
+    console.log(applyColor(activeTheme.error, `  ${icon} ${message}`));
+  },
+  errorDetail: (text, isLast = true) => {
+    const connector = isLast ? "└─" : "├─";
+    console.log(chalk.dim(`    ${connector} ${text}`));
+  },
+  tip: (message) => {
+    console.log(applyColor(activeTheme.warn, `  💡 ${message}`));
+  },
 };
 
 export function banner() {
   console.log(
-    applyColor(activeTheme.primary, chalk.bold(`
+    applyColor(
+      activeTheme.primary,
+      chalk.bold(`
   ██████  ███    ███ ███    ██ ██ 
  ██    ██ ████  ████ ████   ██ ██ 
  ██    ██ ██ ████ ██ ██ ██  ██ ██ 
  ██    ██ ██  ██  ██ ██  ██ ██ ██ 
   ██████  ██      ██ ██   ████ ██ 
-  `)),
+  `),
+    ),
   );
   console.log(chalk.dim("  Multi-Tool CLI — type Ctrl+C to exit\n"));
 }

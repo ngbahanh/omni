@@ -33,3 +33,29 @@ export function clearConfig(toolName) {
   const path = getConfigPath(toolName);
   if (existsSync(path)) writeFileSync(path, "{}", "utf-8");
 }
+
+/**
+ * Global config name shared across all tools.
+ * Settings like outputDir, cookies, theme, language live here.
+ */
+export const GLOBAL_CONFIG_NAME = "omni-global";
+
+/**
+ * Load the global config (omni-global) with sensible defaults.
+ * All tools should read shared settings from here.
+ */
+export function getGlobalConfig() {
+  return loadConfig(GLOBAL_CONFIG_NAME, {
+    outputDir: "downloads",
+    sleepInterval: [1, 3],
+    maxRetries: 3,
+    fileTemplate: "%(upload_date)s - %(title)s [%(id)s].%(ext)s",
+    cookiesPaths: {
+      youtube: null,
+      instagram: null,
+      tiktok: null,
+      facebook: null,
+      x: null,
+    },
+  });
+}

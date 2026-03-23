@@ -82,7 +82,8 @@ export default {
     auth_cookies_removed: "Đã xóa session của {{platform}}.",
     auth_how_to:
       'Cách lấy cookies: cài extension "Get cookies.txt LOCALLY" trên trình duyệt, đăng nhập {{platform}}, sau đó export.',
-    auth_cookies_invalid_confirm: "Cookies không hợp lệ hoặc đã hết hạn. Lưu anyway?",
+    auth_cookies_invalid_confirm:
+      "Cookies không hợp lệ hoặc đã hết hạn. Lưu anyway?",
     auth_guide: "Hướng dẫn lấy cookies",
 
     advanced_sleep: "Thời gian chờ giữa các lần tải (giây)",
@@ -171,7 +172,8 @@ export default {
     input_history: "Xem lịch sử tải gần đây",
     enter_url: "Nhập URL:",
     enter_url_required: "Vui lòng nhập URL",
-    batch_instructions: "Nhập nhiều URL, mỗi URL một dòng. Nhập dòng trống hoặc gõ DONE khi xong:",
+    batch_instructions:
+      "Nhập nhiều URL, mỗi URL một dòng. Nhập dòng trống hoặc gõ DONE khi xong:",
     download_video: "Tải video",
     download_audio: "Tải audio only (MP3)",
     download_video_subs: "Tải video + subtitles",
@@ -206,15 +208,18 @@ export default {
     ig_metadata: "Chỉ tải metadata (JSON)",
     ig_needs_gallery_dl: "cần gallery-dl",
     fb_download: "Tải video Facebook:",
-    fb_limit_warning: "Facebook giới hạn nội dung với tài khoản chưa đăng nhập.",
-    fb_login_hint: "Để tải đầy đủ, hãy cấu hình cookies Facebook trong mục Quản lý đăng nhập.",
+    fb_limit_warning:
+      "Facebook giới hạn nội dung với tài khoản chưa đăng nhập.",
+    fb_login_hint:
+      "Để tải đầy đủ, hãy cấu hình cookies Facebook trong mục Quản lý đăng nhập.",
     fb_login_note: " (có thể cần đăng nhập)",
     fb_videos: "Videos (video đăng trên Page)",
     fb_reels: "Reels",
     fb_photos: "Ảnh (Albums)",
     x_download: "Tải media từ tweet:",
     x_download_photo: "Tải ảnh",
-    x_limit_warning: "X (Twitter) giới hạn nặng từ 2023. Cookies gần như bắt buộc để tải đủ.",
+    x_limit_warning:
+      "X (Twitter) giới hạn nặng từ 2023. Cookies gần như bắt buộc để tải đủ.",
     x_no_cookies: "Không có cookies → chỉ tải được vài chục tweet gần nhất.",
     x_all_media: "Tải toàn bộ media (ảnh + video)",
     x_photos_only: "Chỉ ảnh (Photos tab)",
@@ -262,15 +267,18 @@ export default {
     advanced_date: "Lọc theo ngày (từ ngày ... đến ngày ...)",
     advanced_keyword: "Lọc theo keyword trong tên",
     advanced_file_template: "Đặt tên file theo template tùy chỉnh",
-    advanced_limit_prompt: "Tải tối đa bao nhiêu video? (bỏ trống = không giới hạn):",
+    advanced_limit_prompt:
+      "Tải tối đa bao nhiêu video? (bỏ trống = không giới hạn):",
     advanced_limit_positive: "Vui lòng nhập số dương",
     advanced_date_start: "Ngày bắt đầu (YYYYMMDD, bỏ trống = không giới hạn):",
     advanced_date_end: "Ngày kết thúc (YYYYMMDD, bỏ trống = không giới hạn):",
     advanced_keyword_prompt: "Lọc video có keyword nào trong tên?",
     advanced_template_select: "Chọn template tên file:",
     advanced_template_default: "Mặc định: %(title)s [%(id)s].%(ext)s",
-    advanced_template_date: "Ngày + tiêu đề: %(upload_date)s - %(title)s.%(ext)s",
-    advanced_template_index: "Số thứ tự: %(playlist_index)s - %(title)s.%(ext)s",
+    advanced_template_date:
+      "Ngày + tiêu đề: %(upload_date)s - %(title)s.%(ext)s",
+    advanced_template_index:
+      "Số thứ tự: %(playlist_index)s - %(title)s.%(ext)s",
     advanced_template_enter: "Nhập template (ví dụ: %(title)s.%(ext)s):",
 
     // downloader.js
@@ -291,6 +299,23 @@ export default {
     post_back: "Quay lại menu chính",
     post_next: "Tiếp theo?",
     open_folder_error: "Không mở được thư mục: {{path}}",
+    fallback_gallery_dl: "yt-dlp thất bại — đang thử gallery-dl...",
+    probe_scanning: "Đang quét nội dung...",
+    probe_found: "Tìm thấy: {{details}}",
+    probe_videos: "{{n}} videos",
+    probe_photos: "{{n}} ảnh",
+    probe_stories: "{{n}} stories",
+    probe_reels: "{{n}} reels",
+    probe_total: "{{n}} mục",
+    probe_failed: "Không thể quét nội dung (sẽ tải trực tiếp)",
+
+    // deps.js
+    deps_missing_title: "Thiếu dependencies",
+    deps_required_missing:
+      "Thiếu dependencies bắt buộc: {{deps}}. Không thể tiếp tục.",
+    deps_gallery_dl_missing:
+      "Không tìm thấy gallery-dl. Ảnh/stories Instagram và ảnh/album Facebook sẽ không khả dụng.",
+    gallery_dl_connecting: "Đang kết nối gallery-dl...",
 
     // history.js
     history_empty: "Chưa có lịch sử tải.",
@@ -315,5 +340,37 @@ export default {
     md_quality_prompt: "Chất lượng mặc định:",
     md_quality_best: "Cao nhất (best)",
     md_sub_langs_prompt: "Ngôn ngữ phụ đề (cách nhau bằng dấu phẩy):",
+  },
+
+  errors: {
+    // Error pattern friendly messages
+    auth_required: "Platform yêu cầu đăng nhập (cookies)",
+    login_required: "Yêu cầu đăng nhập",
+    private_content: "Nội dung riêng tư",
+    members_only: "Nội dung dành cho thành viên trả phí",
+    age_restricted: "Nội dung giới hạn độ tuổi — cần đăng nhập",
+    geo_blocked: "Bị chặn tại khu vực của bạn",
+    rate_limited: "Rate limit — hãy chờ rồi thử lại",
+    forbidden_403: "Bị chặn truy cập (403 Forbidden)",
+    not_found: "Nội dung không tồn tại hoặc đã bị xóa",
+    network_error: "Lỗi kết nối mạng",
+    missing_ffmpeg: "Thiếu ffmpeg — cần cài để merge video",
+    unsupported_url: "URL không được hỗ trợ",
+    broken_extractor:
+      "Trình trích xuất yt-dlp cho trang này đã hỏng — đang dùng gallery-dl thay thế",
+    unknown_error: "Lỗi không xác định",
+
+    // Tips
+    tip_auth:
+      'Cấu hình cookies trong "Quản lý đăng nhập" để truy cập nội dung bị giới hạn.',
+    tip_ratelimit:
+      "Chờ vài phút rồi thử lại. Tăng sleep interval trong Cài đặt.",
+    tip_network: "Kiểm tra kết nối mạng và thử lại.",
+    tip_ffmpeg: "Cài ffmpeg: brew install ffmpeg",
+    tip_geo: "Thử sử dụng VPN để truy cập nội dung bị chặn theo khu vực.",
+
+    // Summary
+    error_group_count: "{{friendly}} ({{count}} files)",
+    error_more: "... +{{n}} thêm",
   },
 };
