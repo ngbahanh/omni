@@ -6,7 +6,7 @@ Updated by: Antigravity AI
 ## Current State
 
 - Version: 1.0.0
-- Active tools: Hello World (`src/tools/hello.js`), Media Downloader (`src/tools/media-downloader.js`), Settings (`src/tools/settings.js`)
+- Active tools: Hello World (`src/tools/hello.js`), Media Downloader (`src/tools/media-downloader.js`), Settings (`src/tools/settings.js`), Stream Catcher (`src/tools/stream-catcher.js`), Folder Generator (`src/tools/folder-generator.js`)
 - i18n: Supported languages: English (en), Vietnamese (vi)
 - Known issues: none
 - Next planned features: Add more utility tools as needed

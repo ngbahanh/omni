@@ -367,4 +367,47 @@ export default {
     error_group_count: "{{friendly}} ({{count}} files)",
     error_more: "... +{{n}} more",
   },
+
+  streamCatcher: {
+    menu_title: "Stream Link Catcher",
+    menu_desc: "Catch true streaming URL and download",
+    prompt_url: "Enter stream page URL (leave blank for default):",
+    prompt_headless: "Run browser in hidden (headless) mode?",
+    launching: "Launching browser to visit: {{url}}",
+    waiting: "Waiting for true video link (.m3u8 / .mp4)...",
+    tip: "TIP: If the video doesn't play automatically, switch to the browser window and press Play.",
+    caught: "CAUGHT TRUE LINK: {{link}}",
+    timeout: "Timeout: No video link found after 120s. Exiting.",
+    downloading: "Starting download via yt-dlp. Best quality...",
+    download_complete: "Download complete! Output saved.",
+    error: "Error during stream catch: {{msg}}",
+  },
+
+  folderGenerator: {
+    menu_title: "Bulk Folder Generator",
+    menu_desc: "Create bulk folders from CSV file and Template",
+    csv_prompt: "Enter path to CSV file:",
+    csv_invalid: "CSV file not found!",
+    csv_empty: "CSV file is empty or invalid!",
+    template_prompt: "Enter path to Template folder:",
+    template_invalid: "Folder not found!",
+    template_not_dir: "Path is not a folder!",
+    target_prompt:
+      "Enter path to Target folder (where folders will be created):",
+    target_invalid: "Could not create target folder!",
+    separator_prompt:
+      "Separator character to slice string (e.g. |). Leave empty if not used:",
+    sort_prompt: "Order of creation:",
+    sort_original: "Sequential from original CSV (Original)",
+    sort_asc: "By time: Oldest -> Newest (Ascending)",
+    sort_desc: "By time: Newest -> Oldest (Descending)",
+    time_col_sort_prompt: "Name of time column used for sorting in CSV:",
+    fake_time_confirm:
+      "Do you want to Fake Creation/Modification Date using time in CSV?",
+    time_col_fake_prompt: "Name of time column to fake datetime:",
+    starting: "Starting, processing {{count}} rows...",
+    created: "Created: Index {{index}}",
+    success: "Successfully created all folders!",
+    error: "Something went wrong: {{err}}",
+  },
 };
